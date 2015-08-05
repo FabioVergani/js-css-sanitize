@@ -1,0 +1,14 @@
+var LENGTHUNIT = '(?:p[cxt]|[cem]m|in|dpi|dppx|dpcm|%)';
+
+var MEDIATYPE ='(?:all|aural|braille|embossed|handheld|print|projection|screen|speech|tty|tv)';
+
+
+var MEDIAEXPR ='\\((?:(?:min-|max-)?(?:(?:device-)?(?:aspect-ratio|height|width)|color(?:-index)?|monochrome|orientation|resolution)|grid|hover|luminosity|pointer|scan|script)(?::-?(?:[a-z]\\w+(?:-\\w+)*|\\d+(?: / \\d+|(?:\\.\\d+)?' + LENGTHUNIT + '?)))?\\)';
+
+var MEDIAQUERY ='(?:(?:(?:(?:only|not) )?' + MEDIATYPE + '|' + MEDIAEXPR + ')(?: and ?' + MEDIAEXPR + ')*)';
+
+
+    var MEDIAQUERY_LIST_REGEXP = new RegExp(
+      '^' + MEDIAQUERY + '(?: , ' + MEDIAQUERY + ')*' + '$',
+      'i'
+    );
